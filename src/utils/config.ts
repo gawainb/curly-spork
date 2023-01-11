@@ -11,7 +11,7 @@ export const THEME_CONFIG = {
   initialColorMode: THEME_INITIAL_COLOR,
 }
 
-export const SOCIAL_TWITTER = 'Creativecrtv'
+export const SOCIAL_TWITTER = 'creativecrtv'
 export const SOCIAL_GITHUB = 'creativeplatform/creative-tv'
 
 export const ETH_CHAINS = [mainnet, goerli, sepolia, polygon, optimism, arbitrum]
