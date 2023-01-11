@@ -20,7 +20,7 @@ Feel free to contact us if any issues.
 
 ## Report bugs
 
-We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/creativeplatform/creative-tv/issues); it's that easy!
+We use an issue board to track public bugs. Report a bug by [opening a new issue](https://feedback.creativeplatform.xyz/crtv), it's that easy!
 
 ## Write bug reports with detail, and background
 
