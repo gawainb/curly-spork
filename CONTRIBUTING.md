@@ -14,7 +14,7 @@ Pull requests are the best way to propose changes to the codebase. We actively w
 3. If you've added code that should be tested.
 4. Make sure your code lints.
 5. Issue that pull request!
-6. The Pull Request should be raised against main branch.
+6. The Pull Request should be raised against `staging` branch.
 
 Feel free to contact us if any issues.
 
