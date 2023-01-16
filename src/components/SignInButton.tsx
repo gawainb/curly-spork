@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAccount, useNetwork, useSwitchNetwork } from 'wagmi'
-import { Box, Button } from '@chakra-ui/react'
+import { Box, Button, ButtonGroup } from '@chakra-ui/react'
 import { ConnectKitButton } from 'connectkit'
 import { MediaRenderer } from '@thirdweb-dev/react'
 import useLogin from 'lib/auth/useLogin'
@@ -16,6 +16,7 @@ export default function SignInButton({}: Props) {
   const { mutate: requestLogin } = useLogin()
 
   // 1. User needs to connect their wallet
+  //show button if connected or not connected
   if (!isConnected) {
     return <ConnectKitButton />
   }
@@ -26,7 +27,12 @@ export default function SignInButton({}: Props) {
 
   // If the user is not signed in, we need to request a login
   if (!isSignedInQuery.data) {
-    return <Button onClick={() => requestLogin()}>Sign in with Lens</Button>
+    return (
+      <ButtonGroup>
+        <ConnectKitButton />
+        <Button onClick={() => requestLogin()}>🌿 Sign in with Lens</Button>
+      </ButtonGroup>
+    )
   }
 
   // Loading their profile information

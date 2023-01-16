@@ -1,4 +1,4 @@
-import { useQuery } from 'react-query'
+import { useQuery } from '@tanstack/react-query'
 import { useAccount } from 'wagmi'
 import { readAccessToken } from './helpers'
 import { useDefaultProfileQuery } from '../../graphql/generated'

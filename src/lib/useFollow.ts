@@ -1,4 +1,4 @@
-import { useMutation } from 'react-query'
+import { useMutation } from '@tanstack/react-query'
 import { useAddress, useSDK } from '@thirdweb-dev/react'
 import { LENS_CONTRACT_ABI, LENS_CONTRACT_ADDRESS } from '../utils/config'
 import { useCreateFollowTypedDataMutation } from '../graphql/generated'
