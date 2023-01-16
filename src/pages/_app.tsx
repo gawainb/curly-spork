@@ -1,4 +1,5 @@
 import type { AppProps } from 'next/app'
+import { QueryClient, QueryClientProvider } from 'react-query'
 import { Layout } from 'components/layout'
 import { Web3Provider } from 'providers/Web3'
 import { ChakraProvider } from 'providers/Chakra'
@@ -7,15 +8,19 @@ import { Seo } from 'components/layout/Seo'
 
 export default function App({ Component, pageProps }: AppProps) {
   const isMounted = useIsMounted()
+  // Create a client
+  const queryClient = new QueryClient()
 
   return (
     <ChakraProvider>
       <Seo />
       <Web3Provider>
         {isMounted && (
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
+          <QueryClientProvider client={queryClient}>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </QueryClientProvider>
         )}
       </Web3Provider>
     </ChakraProvider>
