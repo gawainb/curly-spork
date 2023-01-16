@@ -42,13 +42,19 @@ export default function SignInButton({}: Props) {
 
   // If it's done loading and there's no default profile
   if (!profileQuery.data?.defaultProfile) {
-    return <div>No Lens Profile.</div>
+    return (
+      <ButtonGroup>
+        <ConnectKitButton />
+        <Box>No Lens Profile.</Box>
+      </ButtonGroup>
+    )
   }
 
   // If it's done loading and there's a default profile
   if (profileQuery.data?.defaultProfile) {
     return (
-      <Box>
+      <ButtonGroup>
+        <ConnectKitButton />
         <MediaRenderer
           // @ts-ignore
           src={profileQuery?.data?.defaultProfile?.picture?.original?.url || ''}
@@ -59,7 +65,7 @@ export default function SignInButton({}: Props) {
             borderRadius: '50%',
           }}
         />
-      </Box>
+      </ButtonGroup>
     )
   }
 
