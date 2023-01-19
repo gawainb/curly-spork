@@ -2,7 +2,7 @@ import React from 'react'
 import { useAccount, useNetwork, useSwitchNetwork } from 'wagmi'
 import { Box, Button, ButtonGroup } from '@chakra-ui/react'
 import { ConnectKitButton } from 'connectkit'
-import { MediaRenderer } from '@thirdweb-dev/react'
+
 import useLogin from 'lib/auth/useLogin'
 import useLensUser from 'lib/auth/useLensUser'
 
@@ -55,7 +55,7 @@ export default function SignInButton({}: Props) {
     return (
       <ButtonGroup>
         <ConnectKitButton />
-        <MediaRenderer
+        <Box
           // @ts-ignore
           src={profileQuery?.data?.defaultProfile?.picture?.original?.url || ''}
           alt={profileQuery.data.defaultProfile.name || ''}
