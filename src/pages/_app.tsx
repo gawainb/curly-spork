@@ -1,6 +1,5 @@
 import type { AppProps } from 'next/app'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-
 import { Layout } from 'components/layout'
 import { Web3Provider } from 'providers/Web3'
 import { ChakraProvider } from 'providers/Chakra'
@@ -18,11 +17,11 @@ export default function App({ Component, pageProps }: AppProps) {
       <Seo />
       <Web3Provider>
         {isMounted && (
-          <Layout>
-            <QueryClientProvider client={queryClient}>
+          <QueryClientProvider client={queryClient}>
+            <Layout>
               <Component {...pageProps} />
-            </QueryClientProvider>
-          </Layout>
+            </Layout>
+          </QueryClientProvider>
         )}
       </Web3Provider>
     </ChakraProvider>
