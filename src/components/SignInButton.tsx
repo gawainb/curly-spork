@@ -17,7 +17,7 @@ export default function SignInButton({}: Props) {
     if (isConnected) {
       requestLogin()
     }
-  }, [isConnected])
+  }, [isConnected, requestLogin])
 
   // 1. User needs to connect their wallet
   //show button if connected or not connected
