@@ -2,9 +2,10 @@ import React from 'react'
 import { useProfileQuery } from '../../graphql/generated'
 import styles from '../../styles/Profile.module.css'
 import { useRouter } from 'next/router'
-import { MediaRenderer, Web3Button } from '@thirdweb-dev/react'
+import { Box } from '@chakra-ui/react'
 import { LENS_CONTRACT_ABI, LENS_CONTRACT_ADDRESS } from '../../utils/config'
 import { useFollow } from '../../lib/useFollow'
+import { useContract } from 'wagmi'
 
 type Props = {}
 
@@ -14,6 +15,11 @@ export default function ProfilePage({}: Props) {
   const { id } = router.query
 
   const { mutateAsync: followUser } = useFollow()
+
+  const contract = useContract({
+    address: `${LENS_CONTRACT_ADDRESS}`,
+    abi: LENS_CONTRACT_ABI,
+  })
 
   const {
     isLoading: loadingProfile,
@@ -40,7 +46,7 @@ export default function ProfilePage({}: Props) {
         {/* Cover Image */}
         {/* @ts-ignore */}
         {profileData?.profile?.coverPicture?.original?.url && (
-          <MediaRenderer
+          <Box
             // @ts-ignore
             src={profileData?.profile?.coverPicture?.original?.url || ''}
             alt={profileData?.profile?.name || profileData?.profile?.handle || ''}
@@ -50,7 +56,7 @@ export default function ProfilePage({}: Props) {
         {/* Profile Picture */}
         {/* @ts-ignore */}
         {profileData?.profile?.picture?.original?.url && (
-          <MediaRenderer
+          <Box
             // @ts-ignore
             src={profileData.profile.picture.original.url}
             alt={profileData.profile.name || profileData.profile.handle || ''}
@@ -70,12 +76,7 @@ export default function ProfilePage({}: Props) {
           {profileData?.profile?.stats.totalFollowers} {' Followers'}
         </p>
 
-        <Web3Button
-          contractAddress={LENS_CONTRACT_ADDRESS}
-          contractAbi={LENS_CONTRACT_ABI}
-          action={async () => await followUser(profileData?.profile?.id)}>
-          Follow User
-        </Web3Button>
+        <Box onClick={async () => await followUser(profileData?.profile?.id)}>Follow User</Box>
       </div>
     </div>
   )

@@ -1,8 +1,8 @@
-import React from 'react'
-import { useAccount, useNetwork, useSwitchNetwork } from 'wagmi'
-import { Box, Button, ButtonGroup } from '@chakra-ui/react'
+import React, { useEffect } from 'react'
+import { useAccount } from 'wagmi'
+import { Box, ButtonGroup } from '@chakra-ui/react'
 import { ConnectKitButton } from 'connectkit'
-import { MediaRenderer } from '@thirdweb-dev/react'
+
 import useLogin from 'lib/auth/useLogin'
 import useLensUser from 'lib/auth/useLensUser'
 
@@ -10,10 +10,14 @@ type Props = {}
 
 export default function SignInButton({}: Props) {
   const { isConnected } = useAccount() // Detect the connected address
-  const { chain } = useNetwork() // Detect if the user is on the wrong network
-  //   const { chains, error, isError, isLoading, pendingChainId, switchNetwork } = useSwitchNetwork() // Function to switch the network.
   const { isSignedInQuery, profileQuery } = useLensUser()
   const { mutate: requestLogin } = useLogin()
+
+  useEffect(() => {
+    if (isConnected) {
+      requestLogin()
+    }
+  }, [isConnected, requestLogin])
 
   // 1. User needs to connect their wallet
   //show button if connected or not connected
@@ -30,7 +34,7 @@ export default function SignInButton({}: Props) {
     return (
       <ButtonGroup>
         <ConnectKitButton />
-        <Button onClick={() => requestLogin()}>🌿 Sign in with Lens</Button>
+        {/* <Button onClick={() => requestLogin()}>🌿 Sign in with Lens</Button> */}
       </ButtonGroup>
     )
   }
@@ -55,7 +59,7 @@ export default function SignInButton({}: Props) {
     return (
       <ButtonGroup>
         <ConnectKitButton />
-        <MediaRenderer
+        <Box
           // @ts-ignore
           src={profileQuery?.data?.defaultProfile?.picture?.original?.url || ''}
           alt={profileQuery.data.defaultProfile.name || ''}
