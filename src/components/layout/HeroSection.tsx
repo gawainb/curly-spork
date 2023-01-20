@@ -13,6 +13,7 @@ import {
   IconProps,
   useColorModeValue,
 } from '@chakra-ui/react'
+import { SITE_NAME } from 'utils/config'
 
 export default function HeroSection() {
   return (
@@ -41,7 +42,7 @@ export default function HeroSection() {
             </Text>
           </Heading>
           <Text color={'gray.500'}>
-            Creative TV is a decentralized live streaming platform that puts you in control of your content and earnings. Get paid 100% of streaming
+            {SITE_NAME} is a decentralized live streaming platform that puts you in control of your content and earnings. Get paid 100% of streaming
             revenue, have access to your own social token, and monetize your content into NFTs.
           </Text>
           <Stack spacing={{ base: 4, sm: 6 }} direction={{ base: 'column', sm: 'row' }}>

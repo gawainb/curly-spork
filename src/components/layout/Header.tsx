@@ -33,7 +33,7 @@ import { FaMoon, FaSun } from 'react-icons/fa'
 import { SITE_NAME, TRANSACTION_TITLES } from 'utils/config'
 import { LinkComponent } from './LinkComponent'
 import { ThemeSwitcher } from './ThemeSwitcher'
-import { ConnectKitButton } from 'connectkit'
+
 import SignInButton from 'components/SignInButton'
 
 // Takes a long hash string and truncates it.
