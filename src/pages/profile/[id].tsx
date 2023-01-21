@@ -1,6 +1,5 @@
 import React from 'react'
 import { useProfileQuery } from '../../graphql/generated'
-import styles from '../../styles/Profile.module.css'
 import { useRouter } from 'next/router'
 import { Box } from '@chakra-ui/react'
 import { LENS_CONTRACT_ABI, LENS_CONTRACT_ADDRESS } from '../../utils/config'
@@ -41,8 +40,8 @@ export default function ProfilePage({}: Props) {
   }
 
   return (
-    <div className={styles.profileContainer}>
-      <div className={styles.profileContentContainer}>
+    <div>
+      <div>
         {/* Cover Image */}
         {/* @ts-ignore */}
         {profileData?.profile?.coverPicture?.original?.url && (
@@ -50,7 +49,6 @@ export default function ProfilePage({}: Props) {
             // @ts-ignore
             src={profileData?.profile?.coverPicture?.original?.url || ''}
             alt={profileData?.profile?.name || profileData?.profile?.handle || ''}
-            className={styles.coverImageContainer}
           />
         )}
         {/* Profile Picture */}
@@ -60,19 +58,18 @@ export default function ProfilePage({}: Props) {
             // @ts-ignore
             src={profileData.profile.picture.original.url}
             alt={profileData.profile.name || profileData.profile.handle || ''}
-            className={styles.profilePictureContainer}
           />
         )}
 
         {/* Profile Name */}
-        <h1 className={styles.profileName}>{profileData?.profile?.name || 'Anon User'}</h1>
+        <h1>{profileData?.profile?.name || 'Anon User'}</h1>
         {/* Profile Handle */}
-        <p className={styles.profileHandle}>@{profileData?.profile?.handle || 'anonuser'}</p>
+        <p>@{profileData?.profile?.handle || 'anonuser'}</p>
 
         {/* Profile Description */}
-        <p className={styles.profileDescription}>{profileData?.profile?.bio}</p>
+        <p>{profileData?.profile?.bio}</p>
 
-        <p className={styles.followerCount}>
+        <p>
           {profileData?.profile?.stats.totalFollowers} {' Followers'}
         </p>
 
