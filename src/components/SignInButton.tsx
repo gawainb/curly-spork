@@ -34,7 +34,6 @@ export default function SignInButton({}: Props) {
     return (
       <ButtonGroup>
         <ConnectKitButton />
-        {/* <Button onClick={() => requestLogin()}>🌿 Sign in with Lens</Button> */}
       </ButtonGroup>
     )
   }
@@ -47,7 +46,7 @@ export default function SignInButton({}: Props) {
   // If it's done loading and there's no default profile
   if (!profileQuery.data?.defaultProfile) {
     return (
-      <ButtonGroup>
+      <ButtonGroup display="flex" alignItems="center">
         <ConnectKitButton />
         <Box>No Lens Profile.</Box>
       </ButtonGroup>
@@ -57,7 +56,7 @@ export default function SignInButton({}: Props) {
   // If it's done loading and there's a default profile
   if (profileQuery.data?.defaultProfile) {
     return (
-      <ButtonGroup>
+      <ButtonGroup display="flex" alignItems="center">
         <ConnectKitButton />
         <Box
           // @ts-ignore
