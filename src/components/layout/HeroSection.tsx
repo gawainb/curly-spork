@@ -18,14 +18,7 @@ import { HERO_NAME, HERO_DESCRIPTION, HERO_BUTTONS, HERO_IMAGE } from 'utils/con
 import { Player } from '@livepeer/react'
 
 const PosterImage = () => {
-  return (
-    <Image
-      src={HERO_IMAGE}
-      objectFit="cover"
-      alt="Creative Warrior"
-      placeholder="blur"
-    />
-  )
+  return <Image src={HERO_IMAGE} height={'100%'} objectFit="cover" alt="Creative Warrior" placeholder="blur" />
 }
 
 export default function HeroSection() {
