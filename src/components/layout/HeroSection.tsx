@@ -15,6 +15,18 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react'
 import { HERO_NAME, HERO_DESCRIPTION, HERO_BUTTONS, HERO_IMAGE } from 'utils/context'
+import { Player } from '@livepeer/react'
+
+const PosterImage = () => {
+  return (
+    <Image
+      src={HERO_IMAGE}
+      objectFit="cover"
+      alt="Creative Warrior"
+      placeholder="blur"
+    />
+  )
+}
 
 export default function HeroSection() {
   return (
@@ -62,7 +74,7 @@ export default function HeroSection() {
         </Stack>
         <Flex flex={1} justify={'center'} align={'center'} position={'relative'} w={'full'}>
           <Blob w={'150%'} h={'150%'} position={'absolute'} top={'-20%'} left={0} zIndex={-1} color={useColorModeValue('#FF4583', '#D93B6F')} />
-          <Box position={'relative'} height={'300px'} rounded={'2xl'} boxShadow={'2xl'} width={'full'} overflow={'hidden'}>
+          <Box position={'relative'} height={'260px'} rounded={'2xl'} boxShadow={'2xl'} width={'full'} overflow={'hidden'}>
             <IconButton
               aria-label={'Play Button'}
               variant={'ghost'}
@@ -75,7 +87,19 @@ export default function HeroSection() {
               top={'50%'}
               transform={'translateX(-50%) translateY(-50%)'}
             />
-            <Image alt={'Hero Image'} fit={'cover'} align={'center'} w={'100%'} h={'100%'} src={HERO_IMAGE} />
+            <Player
+              title="Creative Introduction"
+              playbackId="3713lxes2gdtl77t"
+              poster={<PosterImage />}
+              showPipButton
+              showTitle={false}
+              aspectRatio="16to9"
+              autoUrlUpload={{ fallback: true, ipfsGateway: 'https://w3s.link' }}
+              showUploadingIndicator={true}
+              controls={{
+                autohide: 3000,
+              }}
+            />
           </Box>
         </Flex>
       </Stack>
