@@ -17,6 +17,8 @@ import {
 import { HERO_NAME, HERO_DESCRIPTION, HERO_BUTTONS, HERO_IMAGE } from 'utils/context'
 import { Player } from '@livepeer/react'
 
+const HERO_PLAYBACK_ID = '3713lxes2gdtl77t'
+
 const PosterImage = () => {
   return <Image src={HERO_IMAGE} height={'100%'} objectFit="cover" alt="Creative Warrior" placeholder="blur" />
 }
@@ -82,7 +84,7 @@ export default function HeroSection() {
             />
             <Player
               title="Creative Introduction"
-              playbackId="3713lxes2gdtl77t"
+              playbackId={HERO_PLAYBACK_ID}
               poster={<PosterImage />}
               showPipButton
               showTitle={false}

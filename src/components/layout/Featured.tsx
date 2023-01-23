@@ -15,13 +15,28 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react'
 import { FEATURED_TEXT, FEATURED_IMAGE } from 'utils/context'
+import { Player } from '@livepeer/react'
+
+const FEATURED_PLAYBACK_ID = 'c3c7u34h2y47jqpd'
+
+const PosterImage = () => {
+  return (
+    <Image
+      src={'https://bafkreigqxnled3uet6dgimfjsrocoh7lw6u7a2b3jjq6r74nz4kh6a4dnm.ipfs.nftstorage.link/'}
+      height={'100%'}
+      objectFit="cover"
+      alt="Creative Logo"
+      placeholder="blur"
+    />
+  )
+}
 
 export default function HeroSection() {
   return (
     <Container maxW={'7xl'}>
       <Stack align={'center'} spacing={{ base: 0, md: -10 }} py={{ base: 20, md: 28 }} direction={{ base: 'column', md: 'row' }}>
         <Flex flex={1} justify={'left'} align={'center'} position={'relative'} w={'full'}>
-          <Box position={'relative'} height={'300px'} rounded={'2xl'} boxShadow={'2xl'} width={'full'} overflow={'hidden'}>
+          <Box position={'relative'} height={'28s0px'} rounded={'2xl'} boxShadow={'2xl'} width={'full'} overflow={'hidden'}>
             <IconButton
               aria-label={'Play Button'}
               variant={'ghost'}
@@ -34,7 +49,19 @@ export default function HeroSection() {
               top={'50%'}
               transform={'translateX(-50%) translateY(-50%)'}
             />
-            <Image alt={'Hero Image'} fit={'cover'} align={'center'} w={'100%'} h={'100%'} src={FEATURED_IMAGE} />
+            <Player
+              title="Creative Introduction"
+              playbackId={FEATURED_PLAYBACK_ID}
+              poster={<PosterImage />}
+              showPipButton
+              showTitle={false}
+              aspectRatio="16to9"
+              autoUrlUpload={{ fallback: true, ipfsGateway: 'https://w3s.link' }}
+              showUploadingIndicator={true}
+              controls={{
+                autohide: 3000,
+              }}
+            />
           </Box>
         </Flex>
         <Stack flex={1} spacing={{ base: 5, md: 10 }}>
