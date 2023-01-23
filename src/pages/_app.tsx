@@ -29,11 +29,13 @@ export default function App({ Component, pageProps }: AppProps) {
         <Seo />
         {isMounted && (
           <WagmiConfig client={wagmiClient}>
-            <QueryClientProvider client={queryClient}>
-              <Layout>
-                <Component {...pageProps} />
-              </Layout>
-            </QueryClientProvider>
+            <ConnectKitProvider>
+              <QueryClientProvider client={queryClient}>
+                <Layout>
+                  <Component {...pageProps} />
+                </Layout>
+              </QueryClientProvider>
+            </ConnectKitProvider>
           </WagmiConfig>
         )}
       </ChakraProvider>
