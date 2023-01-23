@@ -1,12 +1,19 @@
 import type { AppProps } from 'next/app'
 import { createReactClient, studioProvider, LivepeerConfig } from '@livepeer/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { ThirdwebProvider, ChainId } from '@thirdweb-dev/react'
 import { Layout } from 'components/layout'
-import { Web3Provider } from 'providers/Web3'
 import { ChakraProvider } from 'providers/Chakra'
 import { useIsMounted } from 'hooks/useIsMounted'
 import { Seo } from 'components/layout/Seo'
+
+import { WagmiConfig, createClient } from 'wagmi'
+import { ConnectKitProvider, getDefaultClient } from 'connectkit'
+
+const wagmiClient = createClient(
+  getDefaultClient({
+    appName: 'Creative TV',
+  })
+)
 
 export default function App({ Component, pageProps }: AppProps) {
   const isMounted = useIsMounted()
@@ -20,15 +27,15 @@ export default function App({ Component, pageProps }: AppProps) {
     <LivepeerConfig client={client}>
       <ChakraProvider>
         <Seo />
-        <Web3Provider>
-          {isMounted && (
+        {isMounted && (
+          <WagmiConfig client={wagmiClient}>
             <QueryClientProvider client={queryClient}>
               <Layout>
                 <Component {...pageProps} />
               </Layout>
             </QueryClientProvider>
-          )}
-        </Web3Provider>
+          </WagmiConfig>
+        )}
       </ChakraProvider>
     </LivepeerConfig>
   )
