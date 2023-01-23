@@ -7,7 +7,6 @@ import {
   Box,
   useToast,
   useDisclosure,
-  useColorMode,
   VStack,
   HStack,
   Button,
@@ -29,12 +28,11 @@ import { useScroll } from 'framer-motion'
 import { FaUser } from 'react-icons/fa'
 import { IoIosArrowDown } from 'react-icons/io'
 import { AiOutlineMenu } from 'react-icons/ai'
-import { FaMoon, FaSun } from 'react-icons/fa'
 import { SITE_NAME, TRANSACTION_TITLES } from 'utils/config'
 import { LinkComponent } from './LinkComponent'
 import { ThemeSwitcher } from './ThemeSwitcher'
 
-import SignInButton from 'components/SignInButton'
+import SignInButton from 'components/layout/SignInButton'
 
 // Takes a long hash string and truncates it.
 function truncateHash(hash: string, length = 38): string {
