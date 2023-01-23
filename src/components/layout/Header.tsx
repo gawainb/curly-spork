@@ -241,6 +241,32 @@ export function Header(props: Props) {
                     onClick={() => router.push('')}>
                     Error Page
                   </Button>
+                  <Button
+                    bg={bg}
+                    color="black.700"
+                    px="0"
+                    display="inline-flex"
+                    alignItems="center"
+                    fontSize="14px"
+                    fontWeight={700}
+                    _hover={{ color: cl }}
+                    _focus={{ boxShadow: 'none' }}
+                    onClick={() => router.push('/examples/sign')}>
+                    Sign & verify messages
+                  </Button>
+                  <Button
+                    bg={bg}
+                    color="black.700"
+                    px="0"
+                    display="inline-flex"
+                    alignItems="center"
+                    fontSize="14px"
+                    fontWeight={700}
+                    _hover={{ color: cl }}
+                    _focus={{ boxShadow: 'none' }}
+                    onClick={() => router.push('/examples/siwe')}>
+                    Sign-in With Ethereum
+                  </Button>
                 </PopoverContent>
               </Popover>
               <Button
@@ -492,6 +518,32 @@ export function Header(props: Props) {
                       _focus={{ boxShadow: 'none' }}
                       onClick={() => router.push('')}>
                       Error Page
+                    </Button>
+                    <Button
+                      bg={bg}
+                      color="black.700"
+                      px="0"
+                      display="inline-flex"
+                      alignItems="center"
+                      fontSize="14px"
+                      fontWeight={700}
+                      _hover={{ color: cl }}
+                      _focus={{ boxShadow: 'none' }}
+                      onClick={() => router.push('/examples/sign')}>
+                      Sign & verify messages
+                    </Button>
+                    <Button
+                      bg={bg}
+                      color="black.700"
+                      px="0"
+                      display="inline-flex"
+                      alignItems="center"
+                      fontSize="14px"
+                      fontWeight={700}
+                      _hover={{ color: cl }}
+                      _focus={{ boxShadow: 'none' }}
+                      onClick={() => router.push('/examples/siwe')}>
+                      Sign-in With Ethereum
                     </Button>
                   </PopoverContent>
                 </Popover>

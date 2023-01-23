@@ -12,14 +12,6 @@ export default function Home() {
       <main>
         <HeroSection />
         <Featured />
-        <UnorderedList>
-          <ListItem>
-            <LinkComponent href="/examples/sign">Sign & verify messages</LinkComponent>
-          </ListItem>
-          <ListItem>
-            <LinkComponent href="/examples/siwe">Sign-in With Ethereum</LinkComponent>
-          </ListItem>
-        </UnorderedList>
       </main>
     </>
   )
