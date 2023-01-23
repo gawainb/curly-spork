@@ -1,6 +1,6 @@
 import { Box, Container, Link, SimpleGrid, Stack, Text, Flex, Tag, useColorModeValue } from '@chakra-ui/react'
 import { ReactNode } from 'react'
-import { SOCIAL_GITHUB, SOCIAL_TWITTER, SITE_NAME } from 'utils/config'
+import { SOCIAL_GITHUB, SOCIAL_TWITTER, SITE_NAME, SOCIAL_LENS, SOCIAL_DISCORD, SOCIAL_LINKEDIN, SOCIAL_EMAIL, SITE_COPYRIGHT } from 'utils/config'
 
 interface Props {
   className?: string
@@ -53,7 +53,9 @@ export default function Footer(props: Props) {
             <Link href={'#'}>About Us</Link>
             <Link href={'#'}>Press</Link>
             <Link href={'#'}>Careers</Link>
-            <Link href={'#'}>Contact Us</Link>
+            <Link href={SOCIAL_EMAIL} target={'_blank'}>
+              Contact Us
+            </Link>
             <Link href={'#'}>Partners</Link>
           </Stack>
           <Stack align={'flex-start'}>
@@ -66,11 +68,21 @@ export default function Footer(props: Props) {
           </Stack>
           <Stack align={'flex-start'}>
             <ListHeader>Follow Us</ListHeader>
-            <Link href={'#'}>Lens</Link>
-            <Link href={`https://github.com/${SOCIAL_TWITTER}`}>Twitter</Link>
-            <Link href={`https://github.com/${SOCIAL_GITHUB}`}>Github</Link>
-            <Link href={'#'}>Discord</Link>
-            <Link href={'#'}>LinkedIn</Link>
+            <Link href={SOCIAL_LENS} target={'_blank'}>
+              Lens
+            </Link>
+            <Link href={SOCIAL_TWITTER} target={'_blank'}>
+              Twitter
+            </Link>
+            <Link href={SOCIAL_GITHUB} target={'_blank'}>
+              Github
+            </Link>
+            <Link href={SOCIAL_DISCORD} target={'_blank'}>
+              Discord
+            </Link>
+            <Link href={SOCIAL_LINKEDIN} target={'_blank'}>
+              LinkedIn
+            </Link>
           </Stack>
         </SimpleGrid>
       </Container>
@@ -94,7 +106,7 @@ export default function Footer(props: Props) {
           {SITE_NAME}
         </Flex>
         <Text pt={6} fontSize={'sm'} textAlign={'center'}>
-          © 2023 Creative Organization DAO, LLC. All rights reserved
+          {SITE_COPYRIGHT}
         </Text>
       </Box>
     </Box>

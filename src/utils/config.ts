@@ -5,6 +5,7 @@ import { extendTheme } from '@chakra-ui/react'
 export const SITE_NAME = 'CREATIVE TV'
 export const SITE_DESCRIPTION = 'The way your content should be.'
 export const SITE_URL = 'https://creativeplatform.xyz'
+export const SITE_COPYRIGHT = '© 2023 Creative Organization DAO, LLC. All rights reserved.'
 
 export const THEME_INITIAL_COLOR = 'system'
 export const THEME_COLOR_MODES = extendTheme({
@@ -23,8 +24,12 @@ export const THEME_CONFIG = {
   initialColorMode: THEME_INITIAL_COLOR,
 }
 
-export const SOCIAL_TWITTER = 'creativecrtv'
-export const SOCIAL_GITHUB = 'creativeplatform/creative-tv'
+export const SOCIAL_TWITTER = 'https://twitter.com/creativecrtv'
+export const SOCIAL_GITHUB = 'https://github.com/creativeplatform/creative-tv'
+export const SOCIAL_DISCORD = 'https://discord.gg/creativeplatform'
+export const SOCIAL_EMAIL = 'mailto:creatives@creativeplatform.xyz'
+export const SOCIAL_LENS = 'https://lensfrens.xyz/thecreative.lens'
+export const SOCIAL_LINKEDIN = 'https://www.linkedin.com/company/creativeplatform'
 
 export const ETH_CHAINS = [mainnet, goerli, sepolia, polygon, optimism, arbitrum]
 
