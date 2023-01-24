@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   Container,
   Stack,
@@ -13,7 +14,14 @@ import {
   IconProps,
   useColorModeValue,
 } from '@chakra-ui/react'
-import { SITE_NAME } from 'utils/config'
+import { HERO_NAME, HERO_DESCRIPTION, HERO_BUTTONS, HERO_IMAGE } from 'utils/context'
+import { Player } from '@livepeer/react'
+
+const HERO_PLAYBACK_ID = '3713lxes2gdtl77t'
+
+const PosterImage = () => {
+  return <Image src={HERO_IMAGE} height={'100%'} objectFit="cover" alt="Creative Warrior" placeholder="blur" />
+}
 
 export default function HeroSection() {
   return (
@@ -34,20 +42,17 @@ export default function HeroSection() {
                 bg: '#EE774D',
                 zIndex: -1,
               }}>
-              Record once,
+              {HERO_NAME.top}
             </Text>
             <br />
             <Text as={'span'} color={'#EE774D'}>
-              use everywhere!
+              {HERO_NAME.bottom}
             </Text>
           </Heading>
-          <Text color={'gray.500'}>
-            {SITE_NAME} is a decentralized live streaming platform that puts you in control of your content and earnings. Get paid 100% of streaming
-            revenue, have access to your own social token, and monetize your content into NFTs.
-          </Text>
+          <Text color={'gray.500'}>{HERO_DESCRIPTION}</Text>
           <Stack spacing={{ base: 4, sm: 6 }} direction={{ base: 'column', sm: 'row' }}>
             <Button rounded={'full'} size={'lg'} fontWeight={'normal'} px={6} colorScheme={'orange'} bg={'#F2C57C'} _hover={{ bg: '#D9B06F' }}>
-              Get started
+              {HERO_BUTTONS.primary.text}
             </Button>
             <Button
               rounded={'full'}
@@ -58,13 +63,13 @@ export default function HeroSection() {
               bg={'#FF4583'}
               _hover={{ bg: '#D93B6F' }}
               leftIcon={<PlayIcon h={4} w={4} color={'gray.100'} />}>
-              How It Works
+              {HERO_BUTTONS.secondary.text}
             </Button>
           </Stack>
         </Stack>
         <Flex flex={1} justify={'center'} align={'center'} position={'relative'} w={'full'}>
           <Blob w={'150%'} h={'150%'} position={'absolute'} top={'-20%'} left={0} zIndex={-1} color={useColorModeValue('#FF4583', '#D93B6F')} />
-          <Box position={'relative'} height={'300px'} rounded={'2xl'} boxShadow={'2xl'} width={'full'} overflow={'hidden'}>
+          <Box position={'relative'} height={'260px'} rounded={'2xl'} boxShadow={'2xl'} width={'full'} overflow={'hidden'}>
             <IconButton
               aria-label={'Play Button'}
               variant={'ghost'}
@@ -77,13 +82,18 @@ export default function HeroSection() {
               top={'50%'}
               transform={'translateX(-50%) translateY(-50%)'}
             />
-            <Image
-              alt={'Hero Image'}
-              fit={'cover'}
-              align={'center'}
-              w={'100%'}
-              h={'100%'}
-              src={'https://bafybeiefwmq6zykvyhwih5qbhucxrc34zbtxjbwboz7hdgkyh3u6p2ykfa.ipfs.nftstorage.link'}
+            <Player
+              title="Creative Introduction"
+              playbackId={HERO_PLAYBACK_ID}
+              poster={<PosterImage />}
+              showPipButton
+              showTitle={false}
+              aspectRatio="16to9"
+              autoUrlUpload={{ fallback: true, ipfsGateway: 'https://w3s.link' }}
+              showUploadingIndicator={true}
+              controls={{
+                autohide: 3000,
+              }}
             />
           </Box>
         </Flex>

@@ -1,7 +1,8 @@
 import { Heading, ListItem, UnorderedList } from '@chakra-ui/react'
 import { Head } from 'components/layout/Head'
 import { LinkComponent } from 'components/layout/LinkComponent'
-import HeroSection from 'components/layout/HeroSection'
+import HeroSection from 'components/HeroSection'
+import Featured from 'components/Featured'
 
 export default function Home() {
   return (
@@ -10,14 +11,7 @@ export default function Home() {
 
       <main>
         <HeroSection />
-        <UnorderedList>
-          <ListItem>
-            <LinkComponent href="/examples/sign">Sign & verify messages</LinkComponent>
-          </ListItem>
-          <ListItem>
-            <LinkComponent href="/examples/siwe">Sign-in With Ethereum</LinkComponent>
-          </ListItem>
-        </UnorderedList>
+        <Featured />
       </main>
     </>
   )
